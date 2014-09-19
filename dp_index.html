@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>dp pa test</title>
+<link rel="stylesheet" type="text/css" href="http://doctorphong.com/x/skins/Nova/dp_Nova.css" />
+
+<script type="text/javascript">
+/***********************************************
+* Dynamic Ajax Content- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+var loadedobjects=""
+var rootdomain="http://"+window.location.hostname
+function ajaxpage(url, containerid){
+var page_request = false
+if (window.XMLHttpRequest) // if Mozilla, Safari etc
+page_request = new XMLHttpRequest()
+else if (window.ActiveXObject){ // if IE
+try {
+page_request = new ActiveXObject("Msxml2.XMLHTTP")
+} 
+catch (e){
+try{
+page_request = new ActiveXObject("Microsoft.XMLHTTP")
+}
+catch (e){}
+}
+}
+else
+return false
+page_request.onreadystatechange=function(){
+loadpage(page_request, containerid)
+}
+page_request.open('GET', url, true)
+page_request.send(null)
+}
+function loadpage(page_request, containerid){
+if (page_request.readyState == 4 && (page_request.status==200 || window.location.href.indexOf("http")==-1))
+document.getElementById(containerid).innerHTML=page_request.responseText
+}
+function loadobjs(){
+if (!document.getElementById)
+return
+for (i=0; i<arguments.length; i++){
+var file=arguments[i]
+var fileref=""
+if (loadedobjects.indexOf(file)==-1){ //Check to see if this object has not already been added to page before proceeding
+if (file.indexOf(".js")!=-1){ //If object is a js file
+fileref=document.createElement('script')
+fileref.setAttribute("type","text/javascript");
+fileref.setAttribute("src", file);
+}
+else if (file.indexOf(".css")!=-1){ //If object is a css file
+fileref=document.createElement("link")
+fileref.setAttribute("rel", "stylesheet");
+fileref.setAttribute("type", "text/css");
+fileref.setAttribute("href", file);
+}
+}
+if (fileref!=""){
+document.getElementsByTagName("head").item(0).appendChild(fileref)
+loadedobjects+=file+" " //Remember this object as being already added to page
+}
+}
+}
+</script>
+
+</head>
+
+<body>
+
+<div id="dp_header" style="border:1px solid black;width:100%;">
+  DoctorPhong Header Here
+  <br><br><br>
+  &nbsp;<a href="javascript:ajaxpage('dp_latest.html', 'dp_main');">Latest</a>&nbsp;
+  &nbsp;<a href="javascript:ajaxpage('dp_popular.html', 'dp_main');">Popular</a>&nbsp;
+  &nbsp;<a href="javascript:ajaxpage('dp_blogs.html', 'dp_main');">Blogs</a>&nbsp;
+  &nbsp;<a href="javascript:ajaxpage('http://www.doctorphong.com/x/?t=dp_songs', 'dp_main');">Music</a>&nbsp;
+  <br><br>
+</div>
+
+<br>
+
+<div id="dp_main" style="width:980px;border:1px solid black;margin-left:auto;margin-right:auto;">
+  <br><br>
+  &nbsp;
+  DoctorPhong 'Latest' page
+  <br><br>
+</div>
+
+<br>
+
+<div id="dp_footer" style="border:1px solid black;width:100%;">
+  <br><br>
+  <div style="float:left">DoctorPhong Footer Here&nbsp;&nbsp;</div>
+  <div id="dp_player" style="float:left;width:300px;"><b>Player Here</b></div>
+  <br><br>
+</div>
+
+</body>
+
+</html>

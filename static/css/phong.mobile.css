@@ -1,0 +1,23 @@
+body { background: #FFF;}
+
+.ui-mobile #mobile-home {  background: #FFF; }
+.ui-mobile #mobile-homeheader { padding: 50px 25px 0; text-align: center }
+.ui-mobile #mobile-homeheader h1 { margin: 0 0 10px; }
+.ui-mobile #mobile-homeheader p { margin: 0; }
+
+#logoheader {  background: #FF2600; text-align: center; padding: .5em 0; }
+
+h2 { margin-top:1.5em; }
+p code { font-size:1.2em; font-weight:bold; } 
+
+dt { font-weight: bold; margin: 2em 0 .5em; }
+dt code, dd code { font-size:1.3em; line-height:150%; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+.comment { font-size: 90%; margin-bottom: 1em; }
+.comment .text { margin-left: 1em; }
+.comment .text P { margin: 0 0 1em 0 !important; }
+
+.small { font-size: 80%; }
+
+.ui-header .mobile-home { top:0.65em; }
